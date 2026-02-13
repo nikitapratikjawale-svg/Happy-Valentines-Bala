@@ -1,0 +1,405 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>For my aaho aaik na ❤️</title>
+
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&family=Great+Vibes&display=swap"
+        rel="stylesheet">
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box
+        }
+
+        body {
+            font-family: 'Poppins', sans-serif;
+            background: linear-gradient(135deg, #ff4e8a, #ff9a9e);
+            color: white;
+            overflow-x: hidden;
+            transition: 0.6s;
+        }
+
+        body.night {
+            background: linear-gradient(135deg, #0f2027, #203a43, #2c5364);
+        }
+
+        section {
+            min-height: 100vh;
+            display: none;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            padding: 40px 20px;
+            text-align: center;
+            animation: fade 0.8s ease;
+        }
+
+        section.active {
+            display: flex
+        }
+
+        @keyframes fade {
+            from {
+                opacity: 0;
+                transform: translateY(20px)
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0)
+            }
+        }
+
+        h1,
+        h2 {
+            font-family: 'Great Vibes', cursive;
+            text-shadow: 0 0 25px rgba(255, 255, 255, 0.9);
+            margin-bottom: 25px;
+        }
+
+        .btn {
+            padding: 14px 30px;
+            border-radius: 40px;
+            border: none;
+            background: white;
+            color: #ff4e8a;
+            font-weight: 600;
+            cursor: pointer;
+            transition: 0.3s;
+            margin: 10px;
+            box-shadow: 0 0 25px rgba(255, 255, 255, 0.8);
+        }
+
+        .btn:hover {
+            transform: scale(1.1)
+        }
+
+        input {
+            padding: 12px;
+            border-radius: 20px;
+            border: none;
+            text-align: center;
+            outline: none;
+        }
+
+        /* QUIZ */
+        #quizContainer {
+            width: 100%;
+            max-width: 500px;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .option {
+            padding: 15px;
+            margin: 8px 0;
+            border-radius: 30px;
+            background: rgba(255, 255, 255, 0.2);
+            cursor: pointer;
+            transition: 0.3s;
+        }
+
+        .option:hover {
+            background: rgba(255, 255, 255, 0.4);
+            transform: scale(1.05);
+        }
+
+        /* MEMORY + BOUQUET */
+        .memory-container,
+        .bouquet-container {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 40px;
+            flex-wrap: wrap;
+            width: 100%;
+            max-width: 1100px;
+        }
+
+        .memory-text,
+        .bouquet-text {
+            max-width: 450px;
+            font-size: 18px;
+            line-height: 1.6;
+        }
+
+        .polaroid {
+            background: white;
+            padding: 15px 15px 45px 15px;
+            border-radius: 8px;
+            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.4);
+            animation: softGlow 3s infinite alternate;
+            transition: transform 0.3s;
+            width: 100%;
+            max-width: 320px;
+        }
+
+        .polaroid img {
+            width: 100%;
+            height: auto;
+            border-radius: 5px;
+            object-fit: cover;
+        }
+
+        @keyframes softGlow {
+            from {
+                box-shadow: 0 0 25px rgba(255, 255, 255, 0.6)
+            }
+
+            to {
+                box-shadow: 0 0 45px rgba(255, 255, 255, 1)
+            }
+        }
+
+        .polaroid:hover {
+            transform: scale(1.05)
+        }
+
+        /* Floating hearts */
+        .heart {
+            position: fixed;
+            bottom: -10px;
+            font-size: 18px;
+            animation: rise 6s linear infinite;
+        }
+
+        @keyframes rise {
+            to {
+                transform: translateY(-110vh);
+                opacity: 0
+            }
+        }
+
+        #valentineNote {
+            max-width: 500px;
+            min-height: 100px;
+            white-space: pre-line;
+            font-size: 18px;
+            margin-bottom: 20px;
+        }
+
+        /* Mobile Fix */
+        @media(max-width:768px) {
+
+            .memory-container,
+            .bouquet-container {
+                flex-direction: column;
+                text-align: center;
+            }
+
+            .memory-text,
+            .bouquet-text {
+                max-width: 90%;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- PASSWORD -->
+    <section id="passwordPage" class="active">
+        <h1>Pratik Jawale ❤️</h1>
+        <p>Enter Our Special Date To Unlock 🔐</p>
+        <input type="password" id="passwordInput" placeholder="Enter Date">
+        <br><br>
+        <button class="btn" onclick="checkPassword()">Unlock Baby 💖</button>
+    </section>
+
+    <!-- QUIZ -->
+    <section id="quiz">
+        <h2>Pratik's Love Test 😏💕</h2>
+        <div id="quizContainer"></div>
+    </section>
+
+    <!-- MEMORY -->
+    <section id="memory">
+        <h2>Our Cute World 😜❤️</h2>
+
+        <div class="memory-container">
+            <div class="polaroid">
+                <img src="C:\Users\nikit\Downloads\photo 2.jpg">
+            </div>
+
+            <div class="memory-text">
+                From the moment you came into my life, everthing changed in the most beautiful way.</br>
+                You've shown me what true love feels like not just through words,but through the way</br>
+                you care, the way you listen, and the way you make me feel safe even when the we are miles apart</br>
+                From the day one i tried to show you my strong side so that you can think of a strong Nikita</br>
+                but as time passed and the way you treated me like a kid i felt like a home away from my home.....</br>
+                Loog payar krr lete h per bhot kam log ghar bnn pate h but you become my second home....</br>
+            </div>
+        </div>
+
+        <button class="btn" onclick="showSection('bouquetPage')">Next 💐</button>
+    </section>
+
+    <!-- BOUQUET -->
+    <section id="bouquetPage">
+        <h2>Our Special Moments 💕</h2>
+
+        <div class="bouquet-container">
+            <div class="polaroid">
+                <img src="C:\Users\nikit\Downloads\flowers.jpeg">
+            </div>
+
+            <div class="bouquet-text">
+                This bouquet is just a symbol 🌹<br><br>
+                I know i can't love you as much as you do but still I LOVE YOU 💖<br><br>
+                From posh incoming to silly fights 😏<br>
+                I choose you always.
+            </div>
+        </div>
+
+        <br>
+        <button class="btn" onclick="playSong()">Play Our Song 🎶</button>
+        <button class="btn" onclick="toggleNight()">🌙 Night Mode</button>
+        <br><br>
+        <button class="btn" onclick="goToValentine()">Next Surprise 💖</button>
+    </section>
+
+    <!-- VALENTINE -->
+    <section id="valentinePage">
+        <h2>Will You Be My Valentine? 💖</h2>
+        <div id="valentineNote"></div>
+        <button class="btn" onclick="showForever()">Yes ❤️</button>
+        <button class="btn" id="noBtn">No 😜</button>
+    </section>
+
+    <!-- FOREVER -->
+    <section id="foreverPage">
+        <h1>💍 Will You Be Mine Forever? 💍</h1>
+        <p style="font-size:20px;margin:20px 0;">
+            From Male Abdul to Female Abdul 😂❤️<br>
+            I choose you. Today. Tomorrow. Always.
+        </p>
+        <button class="btn" onclick="alert('Forever Starts Now 💕')">Yes, Forever ❤️</button>
+    </section>
+
+    <script>
+
+        const correctPassword = "2831";
+        let currentQuestion = 0;
+
+        const quizData = [
+            { question: "Who is more dramatic? 🎭", options: ["Pratik", "Me", "No one"], correct: 0 },
+            { question: "Who loves more? 😏", options: ["You", "Me", "Both equal"], correct: 1 },
+            { question: "We are known as? 😂", options: ["Cute couple", "Male & Female Abdul", "The ASRs"], correct: 1 }
+        ];
+
+        function showSection(id) {
+            document.querySelectorAll("section").forEach(sec => sec.classList.remove("active"));
+            document.getElementById(id).classList.add("active");
+        }
+
+        function checkPassword() {
+            const value = document.getElementById("passwordInput").value.trim();
+            if (value === correctPassword) {
+                currentQuestion = 0;
+                showSection("quiz");
+                showQuestion();
+            } else {
+                alert("Wrong date Bala 😜");
+            }
+        }
+
+        function showQuestion() {
+            const container = document.getElementById("quizContainer");
+
+            if (currentQuestion >= quizData.length) {
+                showSection("memory");
+                return;
+            }
+
+            const q = quizData[currentQuestion];
+            container.innerHTML = `<h3>${q.question}</h3>`;
+
+            q.options.forEach((opt, i) => {
+                const div = document.createElement("div");
+                div.className = "option";
+                div.innerText = opt;
+                div.onclick = function () {
+                    if (i === q.correct) {
+                        currentQuestion++;
+                        showQuestion();
+                    } else {
+                        alert("Wrong answer Bala 😜");
+                    }
+                };
+                container.appendChild(div);
+            });
+        }
+
+        function playSong() {
+            window.open("https://www.youtube.com/watch?v=VPfhI-6UnUg", "_blank");
+        }
+
+        function toggleNight() {
+            document.body.classList.toggle("night");
+        }
+
+        function createHeart() {
+            const heart = document.createElement("div");
+            heart.className = "heart";
+            heart.innerHTML = "❤️";
+            heart.style.left = Math.random() * 100 + "vw";
+            document.body.appendChild(heart);
+            setTimeout(() => heart.remove(), 6000);
+        }
+        setInterval(createHeart, 800);
+
+        /* Valentine */
+        function goToValentine() {
+            showSection("valentinePage");
+            startValentineNote();
+        }
+
+        const valentineMessage =
+            "Pratik... ❤️\n\
+From posh incoming moments to our silly fights 😏,\n\
+From Male Abdul & Female Abdul to ASR 😂,\n\
+I don’t just want you for today...\n\
+I want you in every version of my future.";
+
+        let vIndex = 0;
+
+        function startValentineNote() {
+            const note = document.getElementById("valentineNote");
+            note.innerHTML = "";
+            vIndex = 0;
+
+            function type() {
+                if (vIndex < valentineMessage.length) {
+                    note.innerHTML += valentineMessage.charAt(vIndex);
+                    vIndex++;
+                    setTimeout(type, 40);
+                }
+            }
+            type();
+        }
+
+        function showForever() {
+            showSection("foreverPage");
+        }
+
+        /* Moving NO button */
+        const noBtn = document.getElementById("noBtn");
+
+        noBtn.addEventListener("mouseover", function () {
+            const x = Math.random() * (window.innerWidth - 150);
+            const y = Math.random() * (window.innerHeight - 100);
+            noBtn.style.position = "absolute";
+            noBtn.style.left = x + "px";
+            noBtn.style.top = y + "px";
+        });
+
+    </script>
+
+</body>
+
+</html>
